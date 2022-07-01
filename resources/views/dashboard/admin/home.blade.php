@@ -7,9 +7,8 @@
             <h1 class="sm:text-white text-5xl uppercase font-bold text-shadow-md pb-14">
                 Admin Des and Dev
             </h1>
-            <a href="{{ route('admin.posts') }}"
-                class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase">
-                Continue Here
+            <a href="/posts" class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase">
+                View Posts
             </a>
         </div>
     </div>

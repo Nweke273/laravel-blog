@@ -9,7 +9,7 @@ use Posts;
 
 class PostsController extends Controller
 {
- 
+
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
@@ -21,7 +21,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-       $posts = Post::where('isApproved','1')->get();
+        $posts = Post::where('user_id', auth()->user()->id)->where('isApproved', '1')->get();
         return view('blog.index')
             ->with('posts', $posts);
     }
@@ -63,7 +63,7 @@ class PostsController extends Controller
         ]);
 
         return redirect('/blog')
-            ->with('message', 'Your post has been added!');
+            ->with('message', 'Post suubmitted for approval');
     }
 
     /**

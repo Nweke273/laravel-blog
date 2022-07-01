@@ -43,12 +43,22 @@
         <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
             {{ $post->description }}
         </p>
-
-        <a href="/blog/{{ $post->slug }}"
-            class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl mr-3">
-            Keep Reading
-        </a>
-
+        <div class="mb-5">
+            <a href="/blog/{{ $post->slug }}"
+                class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl mr-3">
+                Keep Reading
+            </a>
+        </div>
+        <div class="mt-15">
+            <a href="/admin/approve-post/{{$post->id}}"
+                class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl mr-5">
+                Approve Post
+            </a>
+            <a href="/admin/disapprove-post/{{$post->id}}"
+                class="uppercase bg-red-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+                Disapprove Post
+            </a>
+        </div>
         @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
         <span class="float-right">
             <a href="/blog/{{ $post->slug }}/edit" class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,11 +27,11 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $save = $user->save();
-      
+
         if ($save) {
-            return redirect()->back()->with('success', 'You are now registered successfully');
+            return redirect()->route('user.home')->with('message', 'User succesfully registered');
         } else {
-            return redirect()->back()->with('fail', 'Something went wrong, failed to register');
+            return redirect()->back()->with('message', 'Something went wrong, failed to register');
         }
     }
 
@@ -46,7 +47,7 @@ class UserController extends Controller
 
         $creds = $request->only('email', 'password');
         if (Auth::guard('web')->attempt($creds)) {
-            return redirect('/');
+            return redirect()->route('user.home');
         } else {
             return redirect()->route('user.login')->with('fail', 'Incorrect credentials');
         }

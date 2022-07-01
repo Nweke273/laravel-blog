@@ -29,7 +29,7 @@ class AdminController extends Controller
 
     public function posts()
     {
-        return view('blog.index')
+        return view('dashboard.admin.blog')
             ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
     }
     public function destroy($slug)
@@ -46,6 +46,14 @@ class AdminController extends Controller
         $post->isApproved = 1;
         $post->Save();
         session()->flash('message', 'Post Approved');
+        return back();
+    }
+    function disApprovePost($id)
+    {
+        $post = Post::find($id);
+        $post->isApproved = '*';
+        $post->Save();
+        session()->flash('message', 'Post Disapproved');
         return back();
     }
 
