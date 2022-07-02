@@ -49,7 +49,7 @@
                 Keep Reading
             </a>
         </div>
-        <div class="mt-15">
+        <div class="mt-15" style="display:flex;">
             <a href="/admin/approve-post/{{$post->id}}"
                 class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl mr-5">
                 Approve Post
