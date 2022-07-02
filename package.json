@@ -21,8 +21,5 @@
         "postcss-nested": "^4.2",
         "tailwindcss": "^1.8",
         "vue-template-compiler": "^2.6.11"
-    },
-    "engines": {
-    "node": "12.x"
-}
+    }
 }
