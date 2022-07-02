@@ -31,9 +31,9 @@
                     <a class="no-underline hover:underline" href="/">Home</a>
                     <a class="no-underline hover:underline" href="/blog">Blog</a>
                     @guest
-                    <a class="no-underline hover:underline" href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                    <a class="no-underline hover:underline" href="{{ route('user.login') }}">Login</a>
                     @if (Route::has('register'))
-                    <a class="no-underline hover:underline" href="{{ route('user.register') }}">{{_('Register')}}</a>
+                    <a class="no-underline hover:underline" href="{{ route('user.register') }}">Register</a>
                     @endif
                     @else
                     <span>{{ Auth::user()->name }}</span>
